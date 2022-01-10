@@ -7,7 +7,14 @@
         </div>
         <div class="grid grid-cols-8">
             <div class="checker col-span-4">
-                <textarea name="" id="" class="checker-textarea" placeholder="4685310400098585|04|2024|058" v-model="cc"></textarea>
+                <div>
+                    <loading v-model:active="isLoading"
+                    :can-cancel="true"
+                    :on-cancel="onCancel"
+                    :is-full-page="fullPage"/>
+                      <textarea name="" id="" class="checker-textarea" placeholder="4685310400098585|04|2024|058" v-model="cc"></textarea>
+                </div>
+
                 <div class="checker-buttons">
                     <button class="checker-start" @click="checkCC">Iniciar</button>
                     <button class="checker-stop" @click="stopCC">Detener</button>
@@ -18,11 +25,10 @@
                 <br>
                 <span class="messages-cc">xxxxxxxxxxxxxxxxx|xx|xxxx|xxx</span>
                 <br>
-                <a href="https://namso-gen.com/" target="_blank"><span class="messages-cc">Namso-gen: https://namso-gen.com/</span> </a>
-                <a href="">hola</a>
+               <span class="messages-cc">Namso-gen: </span> <a href="https://namso-gen.com/" target="_blank" class="a">https://namso-gen.com/ </a>
             </div>
         </div>
-        <h2>Resultado:</h2>
+        <h3>Resultado:</h3>
         <div v-for="cc in checked">
             <p v-if="cc.msg == 'Live'" class="cc-live">
                 {{ cc.data.cc }}|{{ cc.data.mes }}|{{ cc.data.ano }}|{{ cc.data.cvv }} [Aprovada] ~ Check en Lorem Checker
@@ -36,6 +42,7 @@
         </div>
 
 
+
     </Sidebar>
 
 
@@ -45,61 +52,36 @@
 
 <script>
 import Sidebar from '@/Layouts/Sidebar.vue'
-import axios from 'axios'
 import { Head, Link } from '@inertiajs/inertia-vue3';
+ import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
+
 
 export default {
     components:{
         Sidebar,
-        Link
+        Link,
+        Loading,
     },
     data(){
         return{
             cc: '',
-            checked: []
+            checked: [],
+            isLoading: false,
+            fullPage: true
         }
     },
     methods:{
-        async checkCC() {
-
-
-            let vue =
-                {
-                    cc : this.cc
-                }
-
-
-
-
-           const rawResponse = await fetch('https://localhost/apiv2.php', {
-                method: 'POST',
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(vue)
-            });
-            const data = await rawResponse.json();
-
-            console.log(data)
-            console.log(data.cc)
-
-
-
-            // if(data.msg == "Dead"){
-            //     this.checked.push("<p class='cc-dead'>"+vue.cc+" [Reprovada] ~ Check en Lorem Checker  </p>")
-            // }else if(data.msg == "Proxy Muerta"){
-            //     this.checked.push("<p class=''>"+vue.cc+" [Proxy Muerta] ~ Check en Lorem Checker  </p>")
-            // } else{
-            //     this.checked.push("<p class='cc-live'>"+vue.cc+" [Aprovada] ~ Check en Lorem Checker  </p>")
-            // }
-
-            this.checked.push(data)
-
-
+        onCancel() {
+                console.log('User cancelled the loader.')
         },
-         stopCC(){
+
+
+        checkCC() {
+            this.isLoading = true;
             const cards = this.cc.split("\n")
+
             cards.forEach(async cc => {
                 let vue =
                 {
@@ -120,9 +102,35 @@ export default {
                 // }
                 console.log(data)
                 this.checked.push(data)
-
             });
 
+
+        },
+         stopCC(){
+             this.isLoading = true;
+            const cards = this.cc.split("\n")
+
+            cards.forEach(async cc => {
+                let vue =
+                {
+                    "cc" : cc
+                }
+                 const rawResponse = await fetch('https://localhost/apiv2.php', {
+                    method: 'POST',
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(vue)
+                });
+                const data = await rawResponse.json();
+
+                // if(data.msg == "Proxy Muerta"){
+                //     console.log("dd")
+                // }
+                console.log(data)
+                this.checked.push(data)
+            });
 
 
         }
@@ -230,14 +238,10 @@ export default {
         color: #BDBDBD;
     }
 
-    h2{
-        font-family: Oxanium;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 48px;
-        line-height: 60px;
+    h3{
+
         padding: 40px 0 0;
-        color: #E0E0E0;
+
     }
 
     .cc-live{

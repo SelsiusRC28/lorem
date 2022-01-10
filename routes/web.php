@@ -32,7 +32,25 @@ Route::get('home', function(){
     return Inertia::render('Web/Inicio');
 });
 
+Route::get('chat', function(){
+    return Inertia::render('Web/Chat');
+});
+
+Route::get('foro', function(){
+    return Inertia::render('Web/Foro');
+});
+
+Route::get('aprender', function(){
+    return Inertia::render('Web/Aprender');
+});
+
+Route::get('tienda', function(){
+    return Inertia::render('Web/Tienda');
+});
+
+
 Route::get('carding', function(){
     return Inertia::render('Web/Carding');
 });
+
 

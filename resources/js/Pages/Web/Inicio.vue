@@ -44,15 +44,6 @@ export default {
 </script>
 
 <style >
-    h2{
-        font-family: Oxanium;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 48px;
-        line-height: 60px;
-        padding-bottom: 10px;
-        color: #E0E0E0;
-    }
     .anuncios{
 
         width: 600px;

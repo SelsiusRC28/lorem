@@ -281,4 +281,41 @@ export default {
         color: #34D178;
     }
 
+
+    h2{
+        font-family: Oxanium;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 60px;
+        padding-bottom: 10px;
+        color: #E0E0E0;
+    }
+
+    h3{
+        font-family: Oxanium;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 38px;
+        line-height: 60px;
+        padding-bottom: 10px;
+        color: #E0E0E0;
+    }
+
+    .p{
+        font-family: Oxanium;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        color: #BDBDBD;
+    }
+    .a{
+        font-family: Oxanium;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        color: #34D178;
+    }
 </style>
