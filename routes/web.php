@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,11 +17,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Web/Web', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
     ]);
 });
 
@@ -28,29 +27,40 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('home', function(){
-    return Inertia::render('Web/Inicio');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('home', function(){
+        return Inertia::render('Web/Inicio');
+    });
+
+    Route::get('chat', function(){
+        return Inertia::render('Web/Chat');
+    });
+
+    Route::get('foro', function(){
+        return Inertia::render('Web/Foro');
+    });
+
+    Route::get('aprender', function(){
+        return Inertia::render('Web/Aprender');
+    });
+
+    Route::get('tienda', function(){
+        return Inertia::render('Web/Tienda');
+    });
+
+    Route::get('checker', function(){
+        return Inertia::render('Web/Checker');
+    });
+
+    Route::get('profile', function(){
+        return Inertia::render('Web/Profile');
+    })->name('profile');
+
+    Route::post('profile/{id}', [ProfileController::class, 'update'])->name('profile-image');
+
+
+    Route::get('image', function(){
+        return Inertia::render('Web/Image');
+    });
 });
-
-Route::get('chat', function(){
-    return Inertia::render('Web/Chat');
-});
-
-Route::get('foro', function(){
-    return Inertia::render('Web/Foro');
-});
-
-Route::get('aprender', function(){
-    return Inertia::render('Web/Aprender');
-});
-
-Route::get('tienda', function(){
-    return Inertia::render('Web/Tienda');
-});
-
-
-Route::get('carding', function(){
-    return Inertia::render('Web/Carding');
-});
-
 

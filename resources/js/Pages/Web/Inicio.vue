@@ -27,16 +27,10 @@ export default {
         Sidebar
     },
     methods:{
-        async makeGetRequest() {
 
-            let res = await axios.get('https://jsonplaceholder.typicode.com/todos/');
-
-            let data = res.data;
-            console.log(data);
-        }
     },
     created(){
-        this.makeGetRequest()
+
     }
 
 

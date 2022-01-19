@@ -10,7 +10,10 @@
             <label><input type="checkbox" v-model="fullPage">Full page?</label>
             <button @click.prevent="doAjax">fetch Data</button>
         </div>
-
+                                <pre>{{ $page.props }}</pre>
+                        <form method="POST" @submit.prevent="logout">
+                                <input type="submit">
+                            </form>
 
 
 
@@ -23,11 +26,13 @@ import axios from 'axios'
 import { Head, Link } from '@inertiajs/inertia-vue3';
  import Loading from 'vue-loading-overlay';
 
+
 export default {
     components:{
 
         Link,
-        Loading
+        Loading,
+
     },
      data() {
             return {
@@ -45,7 +50,10 @@ export default {
             },
             onCancel() {
                 console.log('User cancelled the loader.')
-            }
+            },
+            logout() {
+                this.$inertia.post(route('logout'));
+            },
         }
 
     }
