@@ -98,6 +98,7 @@ export default {
             }
         },
         logout() {
+                localStorage.removeItem('load');
                 this.$inertia.post(route('logout'));
         },
     },

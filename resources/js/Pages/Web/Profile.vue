@@ -87,6 +87,7 @@ export default {
     },
     methods: {
          logout() {
+                localStorage.removeItem('load');
                 this.$inertia.post(route('logout'));
         },
         actualizar(){
