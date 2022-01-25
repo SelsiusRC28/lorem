@@ -110,7 +110,7 @@ export default {
 .auth-content {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 100px;
 }
 
 .user-content{
@@ -147,10 +147,13 @@ export default {
 .register {
     background: #08080c;
     border: 2px solid #191b1f;
-    box-sizing: border-box;margin-top: 100vh;
+    box-sizing: border-box;
     font-family: "Oxanium", cursive;
     border-radius: 5px;
     font-size: 20px;
+    width: 150px;
+    height: 50px;
+     color: white;
 }
 
 .register:hover {
