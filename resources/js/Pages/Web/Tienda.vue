@@ -1,19 +1,9 @@
 <template>
 
-
-          <div class="vld-parent">
-            <loading v-model:active="isLoading"
-                    :can-cancel="true"
-                    :on-cancel="onCancel"
-                    :is-full-page="fullPage"/>
-
-            <label><input type="checkbox" v-model="fullPage">Full page?</label>
-            <button @click.prevent="doAjax">fetch Data</button>
-        </div>
-                                <pre>{{ $page.props }}</pre>
-                        <form method="POST" @submit.prevent="logout">
-                                <input type="submit">
-                            </form>
+    <Sidebar>
+        <h3 class="span-404">404</h3>
+        <h3 class="proximamente">Proximamente...</h3>
+    </Sidebar>
 
 
 
@@ -21,40 +11,15 @@
 </template>
 
 <script>
-
+import Sidebar from '@/Layouts/Sidebar.vue'
 import axios from 'axios'
 import { Head, Link } from '@inertiajs/inertia-vue3';
- import Loading from 'vue-loading-overlay';
-
 
 export default {
     components:{
-
-        Link,
-        Loading,
-
+        Sidebar,
+        Link
     },
-     data() {
-            return {
-                isLoading: true,
-                fullPage: true
-            }
-    },
-     methods: {
-            doAjax() {
-                this.isLoading = true;
-                // simulate AJAX
-                setTimeout(() => {
-                    this.isLoading = false
-                }, 5000)
-            },
-            onCancel() {
-                console.log('User cancelled the loader.')
-            },
-            logout() {
-                this.$inertia.post(route('logout'));
-            },
-        }
 
     }
 
@@ -77,7 +42,5 @@ export default {
     .proximamente{
         font-size: 30px;
     }
-    loading{
-        background: red;
-    }
+
 </style>

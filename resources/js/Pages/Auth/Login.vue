@@ -16,7 +16,7 @@
 
 
                 <button :disabled="form.processing">
-                    Log in
+                    Login
                 </button>
                 <Link :href="route('register')" class="link">
                     ¿No tienes una cuenta?
