@@ -1,5 +1,5 @@
 <template>
-<div class="content">
+<div class="content-register">
     <Head title="Register" />
          <h1 class="title"> <span class="title-green">Lorem</span> Ipsum</h1>
 
@@ -75,7 +75,7 @@
     })
 </script>
 <style scoped>
-    .content{
+    .content-register{
         margin: 0;
         padding: 0;
         box-sizing: border-box;

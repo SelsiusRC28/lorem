@@ -1,5 +1,5 @@
 <template>
-<div class="content">
+<div class="content-login">
     <Head title="Log in" />
          <h1 class="title"> <span class="title-green">Lorem</span> Ipsum</h1>
         <form @submit.prevent="submit">
@@ -70,7 +70,7 @@
     })
 </script>
 <style scoped>
-    .content{
+    .content-login{
         margin: 0;
         padding: 0;
         box-sizing: border-box;

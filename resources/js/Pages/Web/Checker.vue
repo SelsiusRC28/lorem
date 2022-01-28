@@ -103,8 +103,8 @@ export default {
                             this.isLoading = false;
                             return
                         }
-                        await axios.post('http://localhost/apiv2.php', payload).then(resp => {
-
+                        await axios.post('http://64.227.22.105/blue.php', payload).then(resp => {
+                            console.log(resp.data)
                             this.checked.push(resp.data)
                         });
                          localStorage.setItem('cards-local', JSON.stringify(this.checked))
