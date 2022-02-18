@@ -14,6 +14,7 @@
                  <label for="password">Contraseña:</label>
                 <input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
 
+                <jet-validation-errors class="mb-4" />
 
                 <button :disabled="form.processing">
                     Login
@@ -22,7 +23,6 @@
                     ¿No tienes una cuenta?
                 </Link>
         </form>
-         <jet-validation-errors class="mb-4" />
 </div>
 
 

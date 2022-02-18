@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\WebController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,9 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('home', function(){
-        return Inertia::render('Web/Inicio');
-    });
+    Route::get('home', [WebController::class, 'inicio']);
 
     Route::get('chat', function(){
         return Inertia::render('Web/Chat');
@@ -62,5 +62,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('image', function(){
         return Inertia::render('Web/Image');
     });
+
+    Route::get('role', [RoleController::class, 'index'])->name('role');
+
+    Route::post('role/{id}', [RoleController::class, 'store'])->name('role-anuncio');
 });
 

@@ -1,16 +1,17 @@
 <template>
     <Sidebar>
-        <h2>Anuncios:</h2>
-        <div class="anuncios">
-           <img src="storage/assets/anuncios-img.png" class="anuncios-img">
-           <h5 class="anuncios-h5">Actualziacion:</h5>
-           <ul>
-               <li>Se ha agregado mas videos a la seccion <a href=""> Aprender.</a></li>
-               <li>Se ha agregado mas videos a la seccion <a href=""> Aprender.</a></li>
-               <li>Se ha agregado mas videos a la seccion <a href=""> Aprender.</a></li>
-               <li>Se ha agregado mas videos a la seccion <a href=""> Aprender.</a></li>
-           </ul>
+        <h2>Anuncios: </h2>
+        <div class="anuncios" v-for="post in posts">
+           <img :src="'storage/'+post.img" class="anuncios-img">
+           <h5 class="anuncios-h5">{{ post.title }} </h5>
+           <span class="inicio-autor">by: {{post.user.email}}</span>
+           <p class="p">
+               {{ post.text }}
+           </p>
         </div>
+
+        <br>
+        {{ users }}
     </Sidebar>
 
 
@@ -26,6 +27,11 @@ export default {
     components:{
         Sidebar
     },
+    props:{
+        users: Object,
+        posts: Object
+    },
+
     methods:{
 
     },
@@ -44,7 +50,9 @@ export default {
         height: auto;
         border-radius: 16px;
         border: 1px solid #34D178;
-        padding: 40px;
+        padding: 20px;
+        word-wrap: break-word;
+        margin-bottom: 50px;
 
     }
     .anuncios-img{
@@ -58,11 +66,12 @@ export default {
         font-family: Oxanium;
         font-style: normal;
         font-weight: bold;
-        font-size: 24px;
-        line-height: 30px;
+        font-size: 30px;
         display: flex;
         align-items: center;
-        color: #BDBDBD;
+        color: #ffffff;
+        margin-top: 10px;
+
     }
     li{
         font-family: Oxanium;
@@ -76,5 +85,20 @@ export default {
     }
     a{
         color: #34D178;
+    }
+
+    .p{
+        line-height: none;
+    }
+    .inicio-autor{
+        font-family: Oxanium;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        color: #BDBDBD;
+        margin-top: -10px;
+        margin-bottom: 5px;
     }
 </style>

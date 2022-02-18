@@ -21,7 +21,7 @@
 
                  <label for="password_confirmation">Confirmar Contraseña:</label>
                 <input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation"  autocomplete="new-password" />
-
+                <jet-validation-errors class="mb-4" />
                  <button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Register
                 </button>
@@ -32,7 +32,7 @@
                   Ya tienes una cuenta?
                 </Link>
 
-              <jet-validation-errors class="mb-4" />
+
         </form>
 </div>
 
