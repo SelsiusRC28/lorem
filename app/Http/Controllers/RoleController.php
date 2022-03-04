@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Anuncio;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class RoleController extends Controller
 {
@@ -17,7 +19,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('roles')->get();
         return Inertia::render('Web/Role', [
             'users' => $users
         ]);
@@ -66,7 +68,7 @@ class RoleController extends Controller
 
         request()->session()->flash('message', 'Holaaaaaaaaa');
 
-        return Redirect::route('role');
+        return Redirect::route('inicio');
 
 
     }
@@ -90,7 +92,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::find($id);
+        return Inertia::render('Web/Edit', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -102,7 +107,29 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request . '</br>';
+
+        // $user = User::find($id);
+        // if($role == 'Vip'){
+        //     $user->credit = 1500;
+        //     $now = Carbon::now();
+        //     $user->days = $now->addDays(30);
+        // }elseif($role == 'Seller'){
+        //     $user->credit = null;
+        //     $now = Carbon::now();
+        //     $user->days = $now->addDays(5);
+        // }elseif($role == 'Admin'){
+        //     $user->credit = 9999;
+        //     $now = Carbon::now();
+        //     $user->days = $now->addDays(9999);
+        // }
+
+        // $user->assignRole($role);
+        // $user->save();
+
+        // request()->session()->flash('message', 'Holaaaaaaaaa');
+
+        // return Redirect::route('role');
     }
 
     /**

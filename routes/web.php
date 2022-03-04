@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\WebController;
+use Carbon\Carbon;
+use Carbon\CarbonImmutable;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,8 +32,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('home', [WebController::class, 'inicio']);
+Route::middleware(['auth:sanctum', 'verified', 'role'])->group(function () {
+    Route::get('home', [WebController::class, 'inicio'])->name('inicio');
 
     Route::get('chat', function(){
         return Inertia::render('Web/Chat');
@@ -66,5 +69,22 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('role', [RoleController::class, 'index'])->name('role');
 
     Route::post('role/{id}', [RoleController::class, 'store'])->name('role-anuncio');
+
+    Route::get('role/{id}', [RoleController::class, 'edit'])->name('role-edit');
+
+    Route::put('role/{id}', [RoleController::class, 'update'])->name('role-role');
+
+    Route::get('carbon', function(){
+         $now =  Carbon::now();
+         $now2 =  Carbon::now();
+         echo $now->addDay(10);
+         echo "<br>";
+         echo $now2;
+         echo "<br>";
+         echo "<br>";
+         echo $now->diffInDays($now2);
+    });
+
+
 });
 

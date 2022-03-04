@@ -1,6 +1,6 @@
 <template>
     <Sidebar>
-        <h2>Anuncios: </h2>
+        <h2>Anuncios </h2>
         <div class="anuncios" v-for="post in posts">
            <img :src="'storage/'+post.img" class="anuncios-img">
            <h5 class="anuncios-h5">{{ post.title }} </h5>
