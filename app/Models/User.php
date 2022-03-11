@@ -77,4 +77,11 @@ class User extends Authenticatable
          return $this->hasMany(Anuncio::class);
      }
 
+      // 1 a muchos
+      public function foros(){
+        return $this->hasMany(Foro::class);
+    }
+
+
+
 }

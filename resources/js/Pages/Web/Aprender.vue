@@ -4,40 +4,18 @@
         <h2>Aprender</h2>
         <h4>Cursos: </h4>
         <div class="cursos-container">
-            <div class="cursos-curso">
-                <img src="storage/assets/cursos-foto.jpg" class="cursos-img">
+            <div class="cursos-curso" v-for="curso in cursos">
+                <img :src="'storage/'+curso.img" class="cursos-img">
                 <div class="cursos-curso-container">
-                    <h5 class="cursos-h5">Carding Basico</h5>
-                    <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris, ornare auctor eget at a massa a, lectus. Vehicula mattis tristique laoreet imperdiet imperdiet consectetur et urna. I</p>
-                    <button class="btn">Ver Curso</button>
-                </div>
-            </div>
-             <div class="cursos-curso">
-                <img src="storage/assets/cursos-foto.jpg" class="cursos-img">
-                <div class="cursos-curso-container">
-                    <h5 class="cursos-h5">Carding Basico</h5>
-                    <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris, ornare auctor eget at a massa a, lectus. Vehicula mattis tristique laoreet imperdiet imperdiet consectetur et urna. I</p>
-                    <button class="btn">Ver Curso</button>
-                </div>
-            </div>
-             <div class="cursos-curso">
-                <img src="storage/assets/cursos-foto.jpg" class="cursos-img">
-                <div class="cursos-curso-container">
-                    <h5 class="cursos-h5">Carding Basico</h5>
-                    <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris, ornare auctor eget at a massa a, lectus. Vehicula mattis tristique laoreet imperdiet imperdiet consectetur et urna. I</p>
-                    <button class="btn">Ver Curso</button>
-                </div>
-            </div>
-             <div class="cursos-curso">
-                <img src="storage/assets/cursos-foto.jpg" class="cursos-img">
-                <div class="cursos-curso-container">
-                    <h5 class="cursos-h5">Carding Basico</h5>
-                    <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris, ornare auctor eget at a massa a, lectus. Vehicula mattis tristique laoreet imperdiet imperdiet consectetur et urna. I</p>
-                    <button class="btn">Ver Curso</button>
+                    <h5 class="cursos-h5">{{ curso.name }}</h5>
+                    <p class="p">{{ curso.description }}</p>
+                    <Link :href="route('aprender-id', curso.id)" method="get"><button class="btn" >Ver Curso</button></Link>
                 </div>
             </div>
 
+
         </div>
+        {{ cursos }}
     </Sidebar>
 
 
@@ -51,10 +29,14 @@ import axios from 'axios'
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
 export default {
+
     components:{
         Sidebar,
         Link
     },
+    props:{
+        cursos: Object
+    }
 
     }
 

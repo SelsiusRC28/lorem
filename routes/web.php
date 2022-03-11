@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ForoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\WebController;
+use App\Models\Curso;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
 use GuzzleHttp\Psr7\Request;
@@ -39,13 +42,12 @@ Route::middleware(['auth:sanctum', 'verified', 'role'])->group(function () {
         return Inertia::render('Web/Chat');
     });
 
-    Route::get('foro', function(){
-        return Inertia::render('Web/Foro');
-    });
+    Route::get('foro', [ForoController::class, 'index']);
+    Route::post('foro', [ForoController::class, 'store'])->name('foro-post');
 
-    Route::get('aprender', function(){
-        return Inertia::render('Web/Aprender');
-    });
+    Route::get('aprender', [WebController::class, 'aprender']);
+
+    Route::get('aprender/{id}', [CursoController::class, 'index'])->name('aprender-id');
 
     Route::get('tienda', function(){
         return Inertia::render('Web/Tienda');

@@ -97,7 +97,7 @@
                         <td class="p-2 whitespace-nowrap">
 
                                 <div v-if="user.roles == ''">
-                                    'h'
+                                      <p class="p text-gray-600 text-center" >No rango  </p>
                                 </div>
 
                                   <div v-else>
