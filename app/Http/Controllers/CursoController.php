@@ -16,7 +16,9 @@ class CursoController extends Controller
      */
     public function index($id)
     {
-        $videos = Video::with(' ');
+
+
+        $videos = Video::where('curso_id', $id)->get();
 
         return Inertia::render('Web/Aprender-id', [
             'videos'=> $videos

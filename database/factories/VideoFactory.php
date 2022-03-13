@@ -14,8 +14,9 @@ class VideoFactory extends Factory
     public function definition()
     {
         return [
-            'video' => $this->faker->randomDigit().'.- '.$this->faker->name(),
+            'title' => $this->faker->randomDigit().'.- '.$this->faker->name(),
             'curso_id' => 1,
+            'video' => 'https://player.vimeo.com/video/35648453?h=8c35b6df41'
         ];
     }
 }
