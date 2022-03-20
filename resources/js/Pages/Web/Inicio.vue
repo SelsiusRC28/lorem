@@ -71,6 +71,8 @@ export default {
         align-items: center;
         color: #ffffff;
         margin-top: 10px;
+        word-wrap: anywhere;
+
 
     }
     li{

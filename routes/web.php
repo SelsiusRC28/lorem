@@ -44,6 +44,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role'])->group(function () {
 
     Route::get('foro', [ForoController::class, 'index']);
     Route::post('foro', [ForoController::class, 'store'])->name('foro-post');
+    Route::post('foro', [ForoController::class, 'like'])->name('foro-like');
 
     Route::get('aprender', [WebController::class, 'aprender']);
 

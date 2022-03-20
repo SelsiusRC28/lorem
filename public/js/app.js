@@ -21589,7 +21589,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       url: "storage/assets/Carding.png",
       usuarios: this.users,
-      role: '',
+      role: "",
       open: false
     };
   },
@@ -21613,6 +21613,9 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.open = false;
       }
+    },
+    likePost: function likePost(id) {
+      this.form.post(route("foro-like", id));
     }
   }
 });
@@ -27272,14 +27275,27 @@ var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_16 = {
   "class": "anuncios"
 };
-var _hoisted_17 = ["src"];
+var _hoisted_17 = ["onClick"];
 var _hoisted_18 = {
+  "class": "post-like"
+};
+
+var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fa-solid fa-heart fa-3x"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_20 = ["src"];
+var _hoisted_21 = {
   "class": "anuncios-h5"
 };
-var _hoisted_19 = {
+var _hoisted_22 = {
   "class": "inicio-autor"
 };
-var _hoisted_20 = {
+var _hoisted_23 = {
   "class": "p"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -27335,16 +27351,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_15])], 544
       /* HYDRATE_EVENTS, NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.open]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.foros, function (foro) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+          "class": "icon-post",
+          onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+            return $options.likePost(foro);
+          }, ["prevent"])
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(foro.likes), 1
+        /* TEXT */
+        ), _hoisted_19], 8
+        /* PROPS */
+        , _hoisted_17), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
           src: 'storage/' + foro.img,
           "class": "anuncios-img"
         }, null, 8
         /* PROPS */
-        , _hoisted_17), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(foro.title), 1
+        , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(foro.title), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_19, "by: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(foro.user.email), 1
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, "by: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(foro.user.email), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(foro.content), 1
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(foro.content), 1
         /* TEXT */
         )]);
       }), 256
@@ -28753,7 +28778,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-div[data-v-388678ea] {\n    display: flex;\n    margin-top: 20px;\n}\n.profile-imgg[data-v-388678ea] {\n    width: 560px;\n    height: 360px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    display: block;\n    margin: 0 auto;\n    background-size: cover;\n    background-position: center top;\n}\n.profile-imgg[data-v-388678ea]:hover {\n    cursor: pointer;\n    transition-duration: 0.5s;\n    filter: blur(3px) grayscale(60%);\n}\n.profile-file-input[data-v-388678ea] {\n    display: none;\n}\n.profile-file-svg[data-v-388678ea] {\n    position: absolute;\n    margin-top: 150px;\n    margin-left: 220px;\n    opacity: 0.5;\n    color: #eb5757;\n}\n.profile-input[data-v-388678ea] {\n    border: none;\n    background: #191b1f;\n    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25);\n    font-family: Oxanium;\n    font-style: normal;\n    font-weight: 500;\n    font-size: 20px;\n    line-height: 25px;\n    color: #576170;\n    width: 100%;\n}\n.profile-btn[data-v-388678ea] {\n    background: #34d178;\n    color: #08080c;\n    width: 300px;\n}\n.form-logout[data-v-388678ea] {\n    margin: 50px 0;\n}\n.btn-logout[data-v-388678ea] {\n    margin: 10px 0;\n}\n.anuncios[data-v-388678ea] {\n    width: 800px;\n    height: auto;\n    border-radius: 16px;\n    border: 1px solid #34d178;\n    padding: 20px;\n    margin: 60px 0;\n}\n.anuncios-img[data-v-388678ea] {\n    width: 560px;\n    height: 360px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    display: block;\n    margin: 0 auto;\n}\n.anuncios-h5[data-v-388678ea] {\n    font-family: Oxanium;\n    font-style: normal;\n    font-weight: bold;\n    font-size: 24px;\n    line-height: 30px;\n    display: flex;\n    align-items: center;\n    color: #bdbdbd;\n}\n.role-textarea[data-v-388678ea] {\n    border: none;\n    width: 100%;\n    height: 342px;\n    background: #191b1f;\n    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25);\n    padding: 20px;\n    font-family: Oxanium;\n    font-style: normal;\n    font-weight: 500;\n    font-size: 20px;\n    line-height: 25px;\n    color: #576170;\n    margin: 20px 0;\n}\nli[data-v-388678ea]{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: normal;\n        font-size: 20px;\n        line-height: 25px;\n        display: flex;\n        align-items: center;\n         color: #BDBDBD;\n}\na[data-v-388678ea]{\n        color: #34D178;\n}\n.p[data-v-388678ea]{\n        line-height: none;\n}\n.inicio-autor[data-v-388678ea]{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: bold;\n        font-size: 18px;\n        display: flex;\n        align-items: center;\n        color: #BDBDBD;\n        margin-top: -10px;\n        margin-bottom: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-div[data-v-388678ea] {\n  display: flex;\n  margin-top: 20px;\n}\n.profile-imgg[data-v-388678ea] {\n  width: 560px;\n  height: 360px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  display: block;\n  margin: 0 auto;\n  background-size: cover;\n  background-position: center top;\n}\n.profile-imgg[data-v-388678ea]:hover {\n  cursor: pointer;\n  transition-duration: 0.5s;\n  filter: blur(3px) grayscale(60%);\n}\n.profile-file-input[data-v-388678ea] {\n  display: none;\n}\n.profile-file-svg[data-v-388678ea] {\n  position: absolute;\n  margin-top: 150px;\n  margin-left: 220px;\n  opacity: 0.5;\n  color: #eb5757;\n}\n.profile-input[data-v-388678ea] {\n  border: none;\n  background: #191b1f;\n  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25);\n  font-family: Oxanium;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 20px;\n  line-height: 25px;\n  color: #576170;\n  width: 100%;\n}\n.profile-btn[data-v-388678ea] {\n  background: #34d178;\n  color: #08080c;\n  width: 300px;\n}\n.form-logout[data-v-388678ea] {\n  margin: 50px 0;\n}\n.btn-logout[data-v-388678ea] {\n  margin: 10px 0;\n}\n.anuncios[data-v-388678ea] {\n  width: 800px;\n  height: auto;\n  border-radius: 16px;\n  border: 1px solid #34d178;\n  padding: 20px;\n  margin: 60px 0;\n}\n.anuncios-img[data-v-388678ea] {\n  width: 560px;\n  height: 360px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  display: block;\n  margin: 0 auto;\n}\n.anuncios-h5[data-v-388678ea] {\n  font-family: Oxanium;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 30px;\n  display: flex;\n  align-items: center;\n  color: #ffffff;\n  margin-top: 10px;\n  word-wrap: anywhere;\n}\n.role-textarea[data-v-388678ea] {\n  border: none;\n  width: 100%;\n  height: 342px;\n  background: #191b1f;\n  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25);\n  padding: 20px;\n  font-family: Oxanium;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 20px;\n  line-height: 25px;\n  color: #576170;\n  margin: 20px 0;\n}\nli[data-v-388678ea] {\n  font-family: Oxanium;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 20px;\n  line-height: 25px;\n  display: flex;\n  align-items: center;\n  color: #bdbdbd;\n}\na[data-v-388678ea] {\n  color: #34d178;\n}\n.p[data-v-388678ea] {\n  line-height: none;\n}\n.inicio-autor[data-v-388678ea] {\n  font-family: Oxanium;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 18px;\n  display: flex;\n  align-items: center;\n  color: #bdbdbd;\n  margin-top: -10px;\n  margin-bottom: 5px;\n}\n.icon-post[data-v-388678ea] {\n  margin-left: 71%;\n  position: absolute;\n  color: #34d178;\n  margin-top: 10px;\n  cursor: pointer;\n}\n.post-like[data-v-388678ea] {\n  font-size: 22px;\n  font-family: Oxanium;\n\n  position: absolute;\n\n  z-index: 999;\n\n  color: black;\n\n  left: 17px;\n  top: 8px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28801,7 +28826,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.anuncios{\n\n        width: 600px;\n        height: auto;\n        border-radius: 16px;\n        border: 1px solid #34D178;\n        padding: 20px;\n        word-wrap: break-word;\n        margin-bottom: 50px;\n}\n.anuncios-img{\n        width: 560px;\n        height: 360px;\n         -o-object-fit: cover;\n            object-fit: cover;\n         display: block;\n         margin: 0 auto;\n}\n.anuncios-h5{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: bold;\n        font-size: 30px;\n        display: flex;\n        align-items: center;\n        color: #ffffff;\n        margin-top: 10px;\n}\nli{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: normal;\n        font-size: 20px;\n        line-height: 25px;\n        display: flex;\n        align-items: center;\n         color: #BDBDBD;\n}\na{\n        color: #34D178;\n}\n.p{\n        line-height: none;\n}\n.inicio-autor{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: bold;\n        font-size: 18px;\n        display: flex;\n        align-items: center;\n        color: #BDBDBD;\n        margin-top: -10px;\n        margin-bottom: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.anuncios{\n\n        width: 600px;\n        height: auto;\n        border-radius: 16px;\n        border: 1px solid #34D178;\n        padding: 20px;\n        word-wrap: break-word;\n        margin-bottom: 50px;\n}\n.anuncios-img{\n        width: 560px;\n        height: 360px;\n         -o-object-fit: cover;\n            object-fit: cover;\n         display: block;\n         margin: 0 auto;\n}\n.anuncios-h5{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: bold;\n        font-size: 30px;\n        display: flex;\n        align-items: center;\n        color: #ffffff;\n        margin-top: 10px;\n        word-wrap: anywhere;\n}\nli{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: normal;\n        font-size: 20px;\n        line-height: 25px;\n        display: flex;\n        align-items: center;\n         color: #BDBDBD;\n}\na{\n        color: #34D178;\n}\n.p{\n        line-height: none;\n}\n.inicio-autor{\n        font-family: Oxanium;\n        font-style: normal;\n        font-weight: bold;\n        font-size: 18px;\n        display: flex;\n        align-items: center;\n        color: #BDBDBD;\n        margin-top: -10px;\n        margin-bottom: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

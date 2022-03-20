@@ -18,6 +18,7 @@ class CreateForosTable extends Migration
             $table->text('title');
             $table->longText('content');
             $table->string('img');
+            $table->integer('likes');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

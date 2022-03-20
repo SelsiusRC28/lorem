@@ -42,7 +42,7 @@ class ForoController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+
 
         $request->validate([
             'image' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
@@ -72,6 +72,16 @@ class ForoController extends Controller
         return Redirect::route('inicio');
     }
 
+
+    public function like(Request $request){
+
+
+        $id = $request->id;
+        $post = Foro::find($id);
+        $post->likes+= 1;
+        $post->save();
+        return back();
+    }
     /**
      * Display the specified resource.
      *

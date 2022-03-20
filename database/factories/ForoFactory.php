@@ -18,6 +18,7 @@ class ForoFactory extends Factory
             'title' => $this->faker->name(),
             'content' =>  $this->faker->text(),
             'img' => 'assets/course.jpg',
+            'likes' => $this->faker->randomDigit(),
             'user_id' => 1
         ];
     }
